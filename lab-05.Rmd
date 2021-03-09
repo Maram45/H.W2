@@ -101,9 +101,10 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 ## But of those US-based Nobel laureates, many were born in other countries
 
 ```{r}
-nobel_living_science  %>%
-          ggplot (aes(x =country_us , y=category, fiil = category)) +
-          geom_bar(stat = "identity" , position = "dodge" , orientation = "horizontal")
+nobel_living_science %>%
+    ggplot(aes(x = country_us,y=category, fill =category)) +
+   geom_bar(stat = "identity", position = "dodge") + 
+   coord_flip()
 ```
 
 
@@ -145,7 +146,7 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 
 
 ```{r}
-nobel_living_science %>% filter(born_country_us=="other",country_us=="USA") %>% count("born_country") %>% arrange(desc(n))
+nobel_living_science %>%               filter(born_country_us=="Other",country_us=="USA")%>%count(born_country) %>%arrange(desc(n))
 ```
 Germany and United kingdom
 
